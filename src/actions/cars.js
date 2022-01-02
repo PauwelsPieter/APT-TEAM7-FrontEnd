@@ -23,12 +23,12 @@ export function loadCarsByModelYearSuccess(cars) {
     return { type: LOAD_MODEL_YEAR_CARS_SUCCESS, cars };
 }
 
-export function createBrandSuccess(brand) {
-    return { type: CREATE_BRAND_SUCCESS, brand }
-}
-
 export function loadCarsByModelTypeSuccess(cars) {
     return { type: LOAD_MODEL_TYPE_CARS_SUCCESS, cars };
+}
+
+export function createBrandSuccess(brand) {
+    return { type: CREATE_BRAND_SUCCESS, brand }
 }
 
 export function loadCars() {
@@ -88,6 +88,19 @@ export function createBrand(brand) {
         return MyApi.createBrand(brand).then(
             (result) => {
                 dispatch(createBrandSuccess(result.data));
+            },
+            (error) => {
+                throw (error);
+            }
+        );
+    };
+}
+
+export function deleteModel(modelId) {
+    return (dispatch) => {
+        return MyApi.deleteModel(modelId).then(
+            (result) => {
+                dispatch(loadCars());
             },
             (error) => {
                 throw (error);

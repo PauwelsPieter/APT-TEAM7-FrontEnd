@@ -185,6 +185,15 @@ span.icon-bar{
   margin-left: 10px;
 }
 
+.model button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: x-large;
+  color: darkred;
+  margin: 10px 0px 0px 10px;
+}
+
 /* Dropdownlist */
 .wrapper-dropdown {
     padding: 0;
