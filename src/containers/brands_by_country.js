@@ -1,4 +1,10 @@
 import React,{ Component} from "react";
+import { connect } from 'react-redux';
+
+import { loadCarsByBrandCountry } from "../actions/cars";
+import { loadCountries } from "../actions/countries";
+import BrandsByCountry from "../components/brands_by_country";
+import store from "../store";
 
 class BrandsByCountryContainer extends Component {
     constructor(props) {
@@ -7,12 +13,27 @@ class BrandsByCountryContainer extends Component {
 
     componentDidMount() {
 
+        store.dispatch(loadCountries());
     }
 
     render() {
         return (
-            <p>Brands by country</p>
+            <BrandsByCountry {...this.props} />
         );
     }
 }
-export default BrandsByCountryContainer;
+const mapStateToProps = (state) => {
+    return {
+        cars: state.cars,
+        countries: state.countries
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        chooseCountry: (country) => {
+            dispatch(loadCarsByBrandCountry(country));
+        }
+    }
+};
+export default connect(mapStateToProps, mapDispatchToProps)(BrandsByCountryContainer);

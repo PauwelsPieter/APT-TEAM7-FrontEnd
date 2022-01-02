@@ -1,4 +1,10 @@
 import React,{ Component} from "react";
+import { connect } from 'react-redux';
+
+import { loadCarsByModelType } from "../actions/cars";
+import { loadTypes } from "../actions/types";
+import ModelsByType from "../components/models_by_type";
+import store from "../store";
 
 class ModelsByTypeContainer extends Component {
     constructor(props) {
@@ -6,13 +12,27 @@ class ModelsByTypeContainer extends Component {
     }
 
     componentDidMount() {
-
+        store.dispatch(loadTypes());
     }
 
     render() {
         return (
-            <p>Models by type</p>
+            <ModelsByType {...this.props} />
         );
     }
 }
-export default ModelsByTypeContainer;
+const mapStateToProps = (state) => {
+    return {
+        cars: state.cars,
+        types: state.types
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        chooseType: (type) => {
+            dispatch(loadCarsByModelType(type));
+        }
+    }
+};
+export default connect(mapStateToProps, mapDispatchToProps)(ModelsByTypeContainer);

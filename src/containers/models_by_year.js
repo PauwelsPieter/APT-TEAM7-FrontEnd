@@ -1,4 +1,10 @@
 import React,{ Component} from "react";
+import { connect } from 'react-redux';
+
+import { loadCarsByModelYear } from "../actions/cars";
+import { loadYears } from "../actions/years";
+import ModelsByYear from "../components/models_by_year";
+import store from "../store";
 
 class ModelsByYearContainer extends Component {
     constructor(props) {
@@ -6,13 +12,29 @@ class ModelsByYearContainer extends Component {
     }
 
     componentDidMount() {
-
+        store.dispatch(loadYears());
     }
 
     render() {
         return (
-            <p>Models by year</p>
+            <>
+                <ModelsByYear {...this.props} />
+            </>
         );
     }
 }
-export default ModelsByYearContainer;
+const mapStateToProps = (state) => {
+    return {
+        cars: state.cars,
+        years: state.years
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        chooseYear: (year) => {
+            dispatch(loadCarsByModelYear(year));
+        }
+    }
+};
+export default connect(mapStateToProps, mapDispatchToProps)(ModelsByYearContainer);
