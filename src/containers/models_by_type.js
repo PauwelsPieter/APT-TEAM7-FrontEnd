@@ -1,7 +1,7 @@
 import React,{ Component} from "react";
 import { connect } from 'react-redux';
 
-import { loadCarsByModelType } from "../actions/cars";
+import { loadCarsByModelType, loadCarsEmpty } from "../actions/cars";
 import { loadTypes } from "../actions/types";
 import ModelsByType from "../components/models_by_type";
 import store from "../store";
@@ -12,6 +12,7 @@ class ModelsByTypeContainer extends Component {
     }
 
     componentDidMount() {
+        store.dispatch(loadCarsEmpty());
         store.dispatch(loadTypes());
     }
 

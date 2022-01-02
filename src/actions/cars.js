@@ -1,9 +1,14 @@
 import MyApi from "../apis/my_api";
 
+export const LOAD_CARS_EMPTY = 'LOAD_CARS_EMPTY';
 export const LOAD_ALL_CARS_SUCCESS = 'LOAD_ALL_CARS_SUCCESS';
 export const LOAD_BRAND_COUNTRY_CARS_SUCCESS = 'LOAD_BRAND_COUNTRY_CARS_SUCCESS';
 export const LOAD_MODEL_YEAR_CARS_SUCCESS = 'LOAD_MODEL_YEAR_CARS_SUCCESS';
 export const LOAD_MODEL_TYPE_CARS_SUCCESS = 'LOAD_MODEL_TYPE_CARS_SUCCESS';
+
+export function loadCarsEmpty() {
+    return { type: LOAD_CARS_EMPTY };
+}
 
 export function loadCarsSuccess(cars) {
     return { type: LOAD_ALL_CARS_SUCCESS, cars };
@@ -25,7 +30,6 @@ export function loadCars() {
     return (dispatch) => {
         return MyApi.getAllCars().then(
             (result) => {
-                console.log('RESULT:',result);
                 dispatch(loadCarsSuccess(result.data));
             },
             (error) => {

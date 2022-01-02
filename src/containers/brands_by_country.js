@@ -1,7 +1,7 @@
 import React,{ Component} from "react";
 import { connect } from 'react-redux';
 
-import { loadCarsByBrandCountry } from "../actions/cars";
+import { loadCarsByBrandCountry, loadCarsEmpty } from "../actions/cars";
 import { loadCountries } from "../actions/countries";
 import BrandsByCountry from "../components/brands_by_country";
 import store from "../store";
@@ -12,7 +12,7 @@ class BrandsByCountryContainer extends Component {
     }
 
     componentDidMount() {
-
+        store.dispatch(loadCarsEmpty());
         store.dispatch(loadCountries());
     }
 
