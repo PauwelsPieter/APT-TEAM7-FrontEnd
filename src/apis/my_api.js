@@ -30,6 +30,10 @@ class MyApi {
     static getTypes() {
         return axios.get(BaseUrl + "/cars/types");
     }
+
+    static createBrand(brand) {
+        return axios.post(BaseUrl + "/cars/brands", brand);
+    }
 }
 export default MyApi;
 

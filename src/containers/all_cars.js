@@ -1,7 +1,7 @@
 import React,{ Component} from "react";
 import { connect } from 'react-redux';
 
-import { loadCars } from "../actions/cars";
+import { createBrand, loadCars } from "../actions/cars";
 import AllCars from "../components/all_cars";
 import store from "../store";
 
@@ -28,6 +28,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        createBrand: (brand) => {
+            dispatch(createBrand(brand));
+        }
     }
 };
 export default connect(mapStateToProps, mapDispatchToProps)(AllCarsContainer);

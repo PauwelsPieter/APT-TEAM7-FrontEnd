@@ -5,6 +5,7 @@ export const LOAD_ALL_CARS_SUCCESS = 'LOAD_ALL_CARS_SUCCESS';
 export const LOAD_BRAND_COUNTRY_CARS_SUCCESS = 'LOAD_BRAND_COUNTRY_CARS_SUCCESS';
 export const LOAD_MODEL_YEAR_CARS_SUCCESS = 'LOAD_MODEL_YEAR_CARS_SUCCESS';
 export const LOAD_MODEL_TYPE_CARS_SUCCESS = 'LOAD_MODEL_TYPE_CARS_SUCCESS';
+export const CREATE_BRAND_SUCCESS = 'CREATE_BRAND_SUCCESS';
 
 export function loadCarsEmpty() {
     return { type: LOAD_CARS_EMPTY };
@@ -20,6 +21,10 @@ export function loadCarsByBrandCountrySuccess(cars) {
 
 export function loadCarsByModelYearSuccess(cars) {
     return { type: LOAD_MODEL_YEAR_CARS_SUCCESS, cars };
+}
+
+export function createBrandSuccess(brand) {
+    return { type: CREATE_BRAND_SUCCESS, brand }
 }
 
 export function loadCarsByModelTypeSuccess(cars) {
@@ -70,6 +75,19 @@ export function loadCarsByModelType(type) {
         return MyApi.getCarsWhereModelFromType(type).then(
             (result) => {
                 dispatch(loadCarsByModelTypeSuccess(result.data));
+            },
+            (error) => {
+                throw (error);
+            }
+        );
+    };
+}
+
+export function createBrand(brand) {
+    return (dispatch) => {
+        return MyApi.createBrand(brand).then(
+            (result) => {
+                dispatch(createBrandSuccess(result.data));
             },
             (error) => {
                 throw (error);
