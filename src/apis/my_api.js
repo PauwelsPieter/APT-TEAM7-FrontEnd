@@ -35,6 +35,10 @@ class MyApi {
         return axios.post(BaseUrl + "/cars/brands", brand);
     }
 
+    static updateBrand(brand) {
+        return axios.put(BaseUrl + "/cars/brands", brand);
+    }
+
     static deleteModel(modelId) {
         return axios.delete(BaseUrl + "/cars/models/" + modelId);
     }

@@ -1,7 +1,7 @@
 import React,{ Component} from "react";
 import { connect } from 'react-redux';
 
-import { createBrand, deleteModel, loadCars } from "../actions/cars";
+import { createBrand, deleteModel, editBrand, loadCars, updateBrand } from "../actions/cars";
 import AllCars from "../components/all_cars";
 import store from "../store";
 
@@ -30,6 +30,12 @@ const mapDispatchToProps = (dispatch) => {
     return {
         createBrand: (brand) => {
             dispatch(createBrand(brand));
+        },
+        editBrand: (brandId) => {
+            dispatch(editBrand(brandId));
+        },
+        updateBrand: (brand) => {
+            dispatch(updateBrand(brand))
         },
         deleteModel: (modelId) => {
             dispatch(deleteModel(modelId));

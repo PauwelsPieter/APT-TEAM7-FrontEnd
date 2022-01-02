@@ -2,7 +2,6 @@ import React from "react";
 import { FaTrash} from 'react-icons/fa'
 
 const ModelItem = ({ model, onDeleteModel }) => {
-    console.log(onDeleteModel);
     return (
         <div>
             <h5>{model.name}</h5>

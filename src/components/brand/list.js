@@ -1,11 +1,12 @@
 import React from "react";
+import EditForm from "./edit_form";
 import BrandItem from "./item";
 
-const CarList = ({ cars, onDeleteModel}) => {
+const CarList = ({ cars, onEditBrand, onUpdateBrand, onDeleteModel}) => {
     const output = cars.map((car, i) => {
         return (
             <div key={i} className="car">
-                <BrandItem car={car} onDeleteModel={onDeleteModel} />
+                {car.isEditing ? <EditForm brand={car} onUpdate={onUpdateBrand} /> : <BrandItem car={car} onEditBrand={onEditBrand} onDeleteModel={onDeleteModel} />}
             </div>
         );
     });

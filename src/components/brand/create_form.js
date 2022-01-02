@@ -37,7 +37,7 @@ class CreateForm extends Component {
 
     render() {
         return (
-            <div className="wrapper-form">
+            <div className="wrapper-create-form">
                 <h3>Create brand</h3>
                 <form onSubmit={this.handleSubmit}>
                     <input required id="name" type="text" placeholder="Enter name" onChange={this.handleChangeName} />
