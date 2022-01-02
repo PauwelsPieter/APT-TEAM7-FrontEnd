@@ -4,7 +4,7 @@ import BrandItem from "./item";
 const CarList = ({cars}) => {
     const output = cars.map((car, i) => {
         return (
-            <div key={i}>
+            <div key={i} className="car">
                 <BrandItem car={car} />
             </div>
         );

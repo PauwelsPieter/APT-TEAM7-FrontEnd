@@ -4,7 +4,7 @@ import ModelItem from "./item";
 const ModelList = ({models}) => {
     const output = models.map((model, i) => {
         return (
-            <div key={i}>
+            <div key={i} className="model">
                 <ModelItem model={model} />
             </div>
         );

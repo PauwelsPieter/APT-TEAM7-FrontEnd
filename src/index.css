@@ -144,6 +144,47 @@ span.icon-bar{
   padding: 15px;
 }
 
+/* List items */
+.car {
+  background-color: #fff;
+
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  border: 2px solid #000;
+  border-radius: 10px;
+}
+
+.car h3 {
+  color: #11999e;
+  text-transform: uppercase;
+}
+
+.car h5 {
+  margin-top: 10px;
+}
+
+.car p {
+  color: #333;
+}
+
+.model {
+  margin-top: 10px;
+  margin-left: 10px;
+
+  border-top: 2px solid #000;
+}
+
+.model h5 {
+  color: #11999e;
+  text-transform: uppercase;
+}
+
+.model p {
+  margin-left: 10px;
+}
+
 /* Dropdownlist */
 .wrapper-dropdown {
     padding: 0;
