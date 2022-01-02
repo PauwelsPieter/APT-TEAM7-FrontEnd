@@ -5,6 +5,9 @@ import { createBrand, deleteModel, editBrand, loadCars, updateBrand } from "../a
 import AllCars from "../components/all_cars";
 import store from "../store";
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 class AllCarsContainer extends Component {
     constructor(props) {
         super();
@@ -16,7 +19,10 @@ class AllCarsContainer extends Component {
 
     render() {
         return (
-            <AllCars {...this.props} />
+            <>
+                <AllCars {...this.props} />
+                <ToastContainer autoClose={3000} pauseOnHover={false} />
+            </>
         );
     }
 }
