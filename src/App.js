@@ -19,7 +19,7 @@ const Header = () => {
 
   return (
     <nav className='navigation'>
-      <div class="nav-text">APT-Team7 front-end</div>
+      <div className="nav-text">APT-Team7 front-end</div>
       <ul className={isActive ? "active nav-menu" : "nav-menu"}>
         <li><NavLink to="/" exact activeClassName="active" onClick={handleDisable}>All cars</NavLink></li>
         <li><NavLink to="/brandsbycountry" activeClassName="active" onClick={handleDisable}>Brands by country</NavLink></li>
@@ -37,7 +37,7 @@ const Header = () => {
 
 const Main = () => {
   return (
-    <div>
+    <div className="content">
       <Switch>
         <Route exact path='/' component={AllCarsContainer} />
         <Route path='/brandsbycountry' component={BrandsByCountryContainer} />

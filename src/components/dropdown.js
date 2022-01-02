@@ -8,7 +8,7 @@ const Dropdown = ({ name, items, onSelect }) => {
     });
 
     return (
-        <div>
+        <div className="wrapper-dropdown">
             <select onChange={(e) => onSelect(e.target.value)}>
                 <option value='' disabled selected>-- Select {name} --</option>
                 {output}
