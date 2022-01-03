@@ -253,10 +253,12 @@ span.icon-bar{
 /* Form */
 .wrapper-create-form {
   background-color: #11999e;
+  color: #fff;
+  
 
   padding: 10px;
 
-  border: 2px solid #000;
+  box-shadow: 0 1px 10px 0 rgb(0 0 0 / 10%), 0 2px 15px 0 rgb(0 0 0 / 5%);
   border-radius: 10px;
 }
 
@@ -269,6 +271,10 @@ span.icon-bar{
 
   border: 2px solid #222;
   border-radius: 5px;
+}
+
+.wrapper-create-form input[type="submit"] {
+  font-weight: bold;
 }
 
 .wrapper-update-form input {
@@ -285,6 +291,7 @@ span.icon-bar{
 .wrapper-update-form input[type="submit"] {
   color: #fff;
   background-color: #11999e;
+  font-weight: bold;
 }
 
 input[type="submit"] {
