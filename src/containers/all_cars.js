@@ -28,7 +28,9 @@ class AllCarsContainer extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-        cars: state.cars
+        cars: state.cars,
+        loading: state.carsLoading,
+        error: state.carsError
     }
 };
 

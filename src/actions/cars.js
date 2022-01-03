@@ -1,6 +1,9 @@
 import MyApi from "../apis/my_api";
 import { toast } from "react-toastify";
 
+export const LOAD_CARS_LOADING = 'LOAD_CARS_LOADING';
+export const LOAD_CARS_ERROR = 'LOAD_CARS_ERROR';
+
 export const LOAD_CARS_EMPTY = 'LOAD_CARS_EMPTY';
 export const LOAD_ALL_CARS_SUCCESS = 'LOAD_ALL_CARS_SUCCESS';
 export const LOAD_BRAND_COUNTRY_CARS_SUCCESS = 'LOAD_BRAND_COUNTRY_CARS_SUCCESS';
@@ -9,6 +12,14 @@ export const LOAD_MODEL_TYPE_CARS_SUCCESS = 'LOAD_MODEL_TYPE_CARS_SUCCESS';
 export const CREATE_BRAND_SUCCESS = 'CREATE_BRAND_SUCCESS';
 export const EDIT_BRAND = 'EDIT_BRAND';
 export const UPDATE_BRAND_SUCCESS = 'UPDATE_BRAND_SUCCESS';
+
+export function loadCarsLoading(loading) {
+    return { type: LOAD_CARS_LOADING, loading };
+}
+
+export function loadCarsError(error) {
+    return { type: LOAD_CARS_ERROR, error };
+}
 
 export function loadCarsEmpty() {
     return { type: LOAD_CARS_EMPTY };
@@ -44,12 +55,14 @@ export function updateBrandSuccess(brand) {
 
 export function loadCars() {
     return (dispatch) => {
+        dispatch(loadCarsLoading(true));
         return MyApi.getAllCars().then(
             (result) => {
                 dispatch(loadCarsSuccess(result.data));
+                dispatch(loadCarsLoading(false));
             },
             (error) => {
-                throw (error);
+                dispatch(loadCarsError(true));
             }
         );
     };
@@ -57,12 +70,14 @@ export function loadCars() {
 
 export function loadCarsByBrandCountry(country) {
     return (dispatch) => {
+        dispatch(loadCarsLoading(true));
         return MyApi.getCarsWhereBrandFromCountry(country).then(
             (result) => {
                 dispatch(loadCarsByBrandCountrySuccess(result.data));
+                dispatch(loadCarsLoading(false));
             },
             (error) => {
-                throw (error);
+                dispatch(loadCarsError(true));
             }
         );
     };
@@ -70,12 +85,14 @@ export function loadCarsByBrandCountry(country) {
 
 export function loadCarsByModelYear(year) {
     return (dispatch) => {
+        dispatch(loadCarsLoading(true));
         return MyApi.getCarsWhereModelFromYear(year).then(
             (result) => {
                 dispatch(loadCarsByModelYearSuccess(result.data));
+                dispatch(loadCarsLoading(false));
             },
             (error) => {
-                throw (error);
+                dispatch(loadCarsError(true));
             }
         );
     };
@@ -83,12 +100,14 @@ export function loadCarsByModelYear(year) {
 
 export function loadCarsByModelType(type) {
     return (dispatch) => {
+        dispatch(loadCarsLoading(true));
         return MyApi.getCarsWhereModelFromType(type).then(
             (result) => {
                 dispatch(loadCarsByModelTypeSuccess(result.data));
+                dispatch(loadCarsLoading(false));
             },
             (error) => {
-                throw (error);
+                dispatch(loadCarsError(true));
             }
         );
     };

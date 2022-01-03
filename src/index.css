@@ -144,6 +144,11 @@ span.icon-bar{
   padding: 15px;
 }
 
+.center {
+  margin-top: 20px;
+  text-align: center;
+}
+
 /* List items */
 .car {
   background-color: #fff;

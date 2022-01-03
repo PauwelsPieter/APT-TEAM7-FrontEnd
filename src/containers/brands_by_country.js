@@ -25,6 +25,8 @@ class BrandsByCountryContainer extends Component {
 const mapStateToProps = (state) => {
     return {
         cars: state.cars,
+        loading: state.carsLoading,
+        error: state.carsError,
         countries: state.countries
     }
 };
