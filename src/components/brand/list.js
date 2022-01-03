@@ -12,7 +12,7 @@ const CarList = ({ cars, onEditBrand, onUpdateBrand, onDeleteModel}) => {
     });
 
     return (
-        <div>
+        <div className="list">
             {output}
         </div>
     );
